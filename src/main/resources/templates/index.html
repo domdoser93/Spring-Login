@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
+        <!--JQUERY-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <!-- css -->
+        <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
         <title>Inicio</title>
         <meta charset="UTF-8">
     </head>
     <body>
-        <div>Bienvenido</div>
+        <div class="form">
+            <form class="login-form" th:action="@{/login}" method="get">
+                <h1>Login</h1>
+                <div class="txtb">
+                    <input type="text" name="username" placeholder="Nombre de Usuario">
+                </div>
+
+                <div class="txtb">
+                    <input type="password" id="pass" placeholder="Contraseña" name="password">
+                </div>
+
+                <input type="submit" class="logbtn" value="Ingresar">
+
+                <div class="bottom-text">
+                    Aun no estas registrado? <a th:href="@{/usuario}">Registrate</a>
+                </div>
+            </form>
+        </div>
     </body>
 </html>

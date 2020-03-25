@@ -1,10 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
+        <!--JQUERY-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <!-- css -->
+        <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
+        
         <title>Registro</title>
         <meta charset="UTF-8">
     </head>
     <body>
-        <div>Registrate</div>
+        <div class="form">
+            <form class="login-form2" role="form" id="registro">
+                <h1>Registro</h1>
+                <div class="contenedor-inputs text-center" id="log_register">
+                    <div class="txtb">
+                        <input type="text" id="name" placeholder="Nombre de Usuario">
+                    </div>
+                    <div class="txtb">
+                        <input type="text" id="ap_p" placeholder="Apellido Paterno">
+                    </div>
+                    <div class="txtb">
+                        <input type="text" id="ap_m" placeholder="Apellido Materno">
+                    </div>
+                    <div class="txtb">
+                        <input type="email" id="email" placeholder="Correo Electrónico">
+                    </div>
+                    <div class="txtb">
+                        <input type="password" id="pass" placeholder="Contraseña">
+                    </div>
+                    <div class="txtb">
+                        <input type="password" id="pass2" placeholder="Repita la Contraseña">
+                    </div>
+                    <input type="submit" class="logbtn" value="Registrar">
+
+                    <div class="bottom-text">
+                        Ya estas registrado? <a <a th:href="@{/}">Ingresar al sistema</a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </body>
 </html>
