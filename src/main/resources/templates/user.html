@@ -16,29 +16,35 @@
     </head>
     <body>
         <div class="form">
-            <form class="login-form2" role="form" id="registro">
+            <form class="login-form2" role="form" autocomplete="off" th:object="${usuario}" th:action="@{/usuario}" method="post">
                 <h1>Registro</h1>
                 <div class="contenedor-inputs text-center" id="log_register">
                     <div class="txtb">
-                        <input type="text" id="name" placeholder="Nombre de Usuario">
+                        <input type="text" th:field="${usuario.username}" placeholder="Nombre de Usuario">
+                        <div class="alert-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error en el nombre</div>
                     </div>
                     <div class="txtb">
-                        <input type="text" id="ap_p" placeholder="Apellido Paterno">
+                        <input type="text" th:field="${usuario.firstName}" placeholder="Apellido Paterno">
+                        <div class="alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error en el apellido</div>                        
                     </div>
                     <div class="txtb">
-                        <input type="text" id="ap_m" placeholder="Apellido Materno">
+                        <input type="text" th:field="${usuario.lastName}" placeholder="Apellido Materno">
+                        <div class="alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error en el apellido</div>
                     </div>
                     <div class="txtb">
-                        <input type="email" id="email" placeholder="Correo Electrónico">
+                        <input type="email" th:field="${usuario.email}" placeholder="Correo Electrónico">
+                        <div class="alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error en el correo</div>
                     </div>
                     <div class="txtb">
-                        <input type="password" id="pass" placeholder="Contraseña">
+                        <input type="password" th:field="${usuario.password}" placeholder="Contraseña">
+                        <div class="alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error en la contraseña</div>
                     </div>
                     <div class="txtb">
-                        <input type="password" id="pass2" placeholder="Repita la Contraseña">
+                        <input type="password" th:field="${usuario.confirmPassword}" placeholder="Repita la Contraseña">
+                        <div class="alert-danger" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Error en la contraseña</div>
                     </div>
                     <input type="submit" class="logbtn" value="Registrar">
-
+                    <div class="alert-danger text-center" th:if="${formErrorMessage}" th:text="${formErrorMessage}">Error message</div>
                     <div class="bottom-text">
                         Ya estas registrado? <a <a th:href="@{/}">Ingresar al sistema</a>
                     </div>
