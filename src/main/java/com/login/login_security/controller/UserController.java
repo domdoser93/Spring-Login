@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -25,10 +26,20 @@ public class UserController {
         return "index";
     }
     
+    @GetMapping("/?error=true")
+    public String indexFail(){
+        return "index";
+    }
+    
     @GetMapping("/usuario")
     public String usuario(Model model){
         model.addAttribute("usuario", new User());        
         return "user";
+    }
+    
+    @GetMapping("/userForm")
+    public String userForm(){
+        return "userForm";
     }
     
     @PostMapping("/usuario")

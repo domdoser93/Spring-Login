@@ -4,6 +4,7 @@ import com.login.login_security.model.User;
 import com.login.login_security.repository.UserRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -39,6 +40,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public User createUser(User user) throws Exception {
         if(checkUsernameExists(user) && checkPassword(user)){
+            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             user = userRepository.save(user);
         }
         return user;

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Perfil</title>
+        <meta charset="UTF-8">
+        <!--JQUERY-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+        <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="static/css/profile.css" th:href="@{/css/profile.css}">
+    </head>
+    <body>
+        <a class="nav-link" href="#" th:href="@{/logout}"><span th:text="${#authentication.getPrincipal().getUsername()}"></span> - <span>Cerrar sesión </span><span class="float-right"><i class="fas fa-sing-out-alt"></i></span></a>
+        <br>
+        <br>
+        <br>
+        <div class="card">
+            <img src="static/img/user.png" th:src="@{/img/user.png}" alt="usuario" style="width:100%">
+            <h1><span th:text="${#authentication.getPrincipal().getUsername()}"></span></h1>
+            <a href="mailto:"><i class="fa fa-address-card"></i></a>
+            <a><i class="fa fa-qrcode"></i></a>
+            <p><button onclick="window.location.href='mailto:correo'">Contacto</button></p>
+        </div>
+    </body>
+</html>
